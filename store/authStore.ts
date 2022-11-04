@@ -9,7 +9,9 @@ const authStore = (set: any) => ({
   removeUser: () => set({ userProfile: null }),
 
   fetchAllUsers: async () => {
-    const response = await axios.get(`http://localhost:3000/api/users`);
+    const response = await axios.get(
+      `https://tiktok-clone-jacob-stein1.vercel.app/api/users`
+    );
     set({ allUsers: response.data });
   },
 });

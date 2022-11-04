@@ -27,9 +27,13 @@ export const getServerSideProps = async ({
 }) => {
   let response = null;
   if (topic) {
-    response = await axios.get(`http://localhost:3000/api/discover/${topic}`);
+    response = await axios.get(
+      `https://tiktok-clone-jacob-stein1.vercel.app/api/discover/${topic}`
+    );
   } else {
-    response = await axios.get(`http://localhost:3000/api/post`);
+    response = await axios.get(
+      `https://tiktok-clone-jacob-stein1.vercel.app/api/post`
+    );
     // CHANGING THE ABOVE LINE TO BASE_URL CAUSES ERR:CONN ERROR
   }
   return {

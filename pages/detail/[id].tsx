@@ -43,11 +43,14 @@ const Detail = ({ postDetails }: IProps) => {
 
   const handleLike = async (like: boolean) => {
     if (userProfile) {
-      const { data } = await axios.put(`http://localhost:3000/api/like`, {
-        userId: userProfile._id,
-        postId: post._id,
-        like,
-      });
+      const { data } = await axios.put(
+        `https://tiktok-clone-jacob-stein1.vercel.app/api/like`,
+        {
+          userId: userProfile._id,
+          postId: post._id,
+          like,
+        }
+      );
 
       setPost({ ...post, likes: data.likes });
     }
@@ -58,7 +61,7 @@ const Detail = ({ postDetails }: IProps) => {
     if (userProfile && comment) {
       setIsPostingComment(true);
       const { data } = await axios.put(
-        `http://localhost:3000/api/post/${post._id}`,
+        `https://tiktok-clone-jacob-stein1.vercel.app/api/post/${post._id}`,
         {
           userId: userProfile._id,
           comment,
@@ -176,7 +179,9 @@ export const getServerSideProps = async ({
 }: {
   params: { id: string };
 }) => {
-  const { data } = await axios.get(`http://localhost:3000/api/post/${id}`);
+  const { data } = await axios.get(
+    `https://tiktok-clone-jacob-stein1.vercel.app/api/post/${id}`
+  );
   // ALSO CAUSES ERCONN ERROR
   return {
     props: { postDetails: data },
