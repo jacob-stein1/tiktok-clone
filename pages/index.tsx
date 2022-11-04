@@ -20,12 +20,21 @@ const Home = ({ videos }: IProps) => {
   );
 };
 
-export const getServerSideProps = async () => {
-  const { data } = await axios.get(`http://localhost:3000/api/post`);
-  // CHANGING THE ABOVE LINE TO BASE_URL CAUSES ERR:CONN ERROR
+export const getServerSideProps = async ({
+  query: { topic },
+}: {
+  query: { topic: string };
+}) => {
+  let response = null;
+  if (topic) {
+    response = await axios.get(`http://localhost:3000/api/discover/${topic}`);
+  } else {
+    response = await axios.get(`http://localhost:3000/api/post`);
+    // CHANGING THE ABOVE LINE TO BASE_URL CAUSES ERR:CONN ERROR
+  }
   return {
     props: {
-      videos: data,
+      videos: response.data,
     },
   };
 };

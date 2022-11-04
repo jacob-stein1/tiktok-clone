@@ -6,6 +6,8 @@ import Link from "next/link";
 import { HiVolumeUp, HiVolumeOff } from "react-icons/hi";
 import { BsPlay, BsFillPlayFill, BsFillPauseFill } from "react-icons/bs";
 import { GoVerified } from "react-icons/go";
+import LikeButton from "./LikeButton";
+import { MdFavorite } from "react-icons/md";
 
 interface IProps {
   post: Video;
@@ -105,6 +107,9 @@ const VideoCard: NextPage<IProps> = ({ post }) => {
             </div>
           )}
         </div>
+        {/* <div className="bg-primary rounded-full p-2 md:p-4 text-[#F51997]">
+          <MdFavorite className="text-lg md:text-2xl" />
+        </div> */}
       </div>
     </div>
   );

@@ -54,7 +54,7 @@ const Sidebar = () => {
                 <p className="text-2xl">
                   <RiLiveFill />
                 </p>
-                <span className="text-xl hidden xl:block">Following</span>
+                <span className="text-xl hidden xl:block">LIVE</span>
               </div>
             </Link>
           </div>
